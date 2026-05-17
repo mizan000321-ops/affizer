@@ -39,10 +39,8 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.06);
             text-align: center;
             border-top: 6px solid #ff0055;
-            position: relative;
         }
         
-        /* Pulse Animation for Live Badge */
         @keyframes pulse {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
@@ -73,7 +71,6 @@
 
         h2 { color: #222; font-size: 21px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 5px; }
         
-        /* Modern Progress Bar */
         .progress-bar {
             width: 100%;
             background: #f1f5f9;
@@ -99,7 +96,6 @@
 
         p { font-size: 14.5px; line-height: 1.55; color: #4a5568; text-align: left; margin-bottom: 15px; }
         
-        /* Sleek iOS Style Notification Boxes */
         .card-alert {
             background-color: #fff5f5;
             border-left: 4px solid #ff4d6d;
@@ -119,7 +115,6 @@
         .card-status ul { padding-left: 16px; color: #0369a1; font-size: 13.5px; }
         .card-status li { margin-top: 4px; }
 
-        /* Elegant Flex Gallery with Aspect-Ratio Fix */
         .gallery-wrap {
             display: flex;
             flex-wrap: wrap;
@@ -133,35 +128,64 @@
             object-fit: cover;
             border-radius: 12px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-            transition: transform 0.2s;
         }
-        .gallery-img:hover { transform: scale(1.03); }
 
-        /* Premium Pulsing CTA Button */
-        .cta-btn {
+        /* ------------------------------------
+           3 DISTINCT PROFESSIONAL BUTTONS
+        ------------------------------------ */
+        
+        /* Button 1: Top - Glowing Pink Gradient */
+        .btn-top {
             display: block;
-            background: linear-gradient(135deg, #ff0055, #e6004c);
-            color: #fff;
-            text-decoration: none;
+            background: linear-gradient(135deg, #ff0055, #ff4d6d);
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 12px;
+            margin: 15px 0 20px 0;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.25);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Button 2: Middle - Clean Safe Blue Messenger Style */
+        .btn-mid {
+            display: block;
+            background: #0084ff;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 50px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 132, 255, 0.2);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+        }
+
+        /* Button 3: Bottom - Premium Dark Red Ultra-Glossy */
+        .btn-bottom {
+            display: block;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: #ffffff !important;
+            text-decoration: none !important;
             font-size: 16px;
             font-weight: 700;
             padding: 16px 20px;
             border-radius: 50px;
-            margin-top: 22px;
-            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.3);
+            margin-top: 15px;
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.35);
             text-align: center;
-            letter-spacing: 0.3px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
         }
-        .cta-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(255, 0, 85, 0.4);
-        }
-    </style>
-</head>
 
-<body>
-
-    <div class="container">
-        <img src="https://github.com/mizan000321-ops/newv/blob/main/HGShZ2GWUAEMERX.jpg?raw=true" alt="Live Host" style="width: 105px; height: 105px; border-radius: 50%; border: 3px solid #ff0055; object-fit: cover; margin: 0 auto 8px auto; display: block; box-shadow:
+        /* Hover states for professional desktop look */
+        .btn-top:hover, .
