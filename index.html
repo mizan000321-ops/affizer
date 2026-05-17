@@ -19,173 +19,161 @@
     <meta property="og:image:type" content="image/jpeg">
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background-color: #f0f2f5;
             color: #1c1e21;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
         }
         .container {
             background: #ffffff;
             max-width: 440px;
             width: 100%;
-            padding: 24px;
-            border-radius: 24px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
-            text-align: center;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border-top: 6px solid #ff0055;
+            box-sizing: border-box;
+            text-align: center;
         }
-        
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        .main-profile {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #ff0055;
+            object-fit: cover;
+            margin: 0 auto 5px auto;
+            display: block;
         }
-        
-        .live-badge {
-            display: inline-flex;
-            align-items: center;
-            background: #f0fdf4;
-            color: #16a34a;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
+        .live-text {
+            color: #22c55e;
+            font-size: 12px;
             font-weight: bold;
             margin-bottom: 15px;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
-            border: 1px solid #bbf7d0;
         }
-        .live-dot {
-            width: 7px;
-            height: 7px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            margin-right: 6px;
-            animation: pulse 2s infinite;
+        h2 { 
+            color: #222222; 
+            font-size: 20px; 
+            font-weight: bold; 
+            margin-bottom: 15px; 
         }
-
-        h2 { color: #222; font-size: 21px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 5px; }
+        p { 
+            font-size: 14px; 
+            line-height: 1.5; 
+            color: #4a5568; 
+            text-align: left; 
+            margin-bottom: 15px; 
+        }
         
-        .progress-bar {
-            width: 100%;
-            background: #f1f5f9;
-            height: 5px;
-            border-radius: 10px;
-            margin: 15px 0 20px 0;
-            overflow: hidden;
-            position: relative;
-        }
-        .progress-fill {
-            width: 65%;
-            background: linear-gradient(90deg, #ff0055, #ff5500);
-            height: 100%;
-            border-radius: 10px;
-            position: absolute;
-            animation: loadingMove 2s infinite ease-in-out;
-        }
-        @keyframes loadingMove {
-            0% { left: -40%; width: 30%; }
-            50% { width: 40%; }
-            100% { left: 110%; width: 30%; }
-        }
-
-        p { font-size: 14.5px; line-height: 1.55; color: #4a5568; text-align: left; margin-bottom: 15px; }
-        
+        /* Message & Status Cards */
         .card-alert {
             background-color: #fff5f5;
             border-left: 4px solid #ff4d6d;
-            padding: 14px;
-            margin: 16px 0;
-            border-radius: 12px;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
             text-align: left;
         }
         .card-status {
             background-color: #f0f9ff; 
             border-left: 4px solid #0284c7;
-            padding: 14px;
-            margin: 16px 0;
-            border-radius: 12px;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
             text-align: left;
         }
-        .card-status ul { padding-left: 16px; color: #0369a1; font-size: 13.5px; }
-        .card-status li { margin-top: 4px; }
+        .card-status ul { 
+            padding-left: 20px; 
+            color: #0369a1; 
+            font-size: 13px; 
+        }
+        .card-status li {
+            margin-top: 3px;
+        }
 
+        /* Bulletproof Grid Layout for Images */
         .gallery-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 22px 0;
-            width: 100%;
+            margin: 20px 0;
+            text-align: left;
         }
         .gallery-img {
-            width: calc(33.33% - 6px);
-            aspect-ratio: 1 / 1;
+            width: 31%;
+            height: 95px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid #e2e8f0;
+            margin: 1%;
+            display: inline-block;
         }
 
-        /* ------------------------------------
-           3 DISTINCT PROFESSIONAL BUTTONS
-        ------------------------------------ */
-        
-        /* Button 1: Top - Glowing Pink Gradient */
-        .btn-top {
+        /* 3 Buttons Styling */
+        .btn-link {
             display: block;
-            background: linear-gradient(135deg, #ff0055, #ff4d6d);
             color: #ffffff !important;
             text-decoration: none !important;
             font-size: 15px;
-            font-weight: 700;
-            padding: 14px 20px;
-            border-radius: 12px;
-            margin: 15px 0 20px 0;
-            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.25);
+            font-weight: bold;
+            padding: 14px 10px;
+            border-radius: 50px;
             text-align: center;
-            border: none;
-            cursor: pointer;
+            margin: 15px 0;
+            box-sizing: border-box;
         }
-
-        /* Button 2: Middle - Clean Safe Blue Messenger Style */
-        .btn-mid {
-            display: block;
+        .btn-pink {
+            background: #ff0055;
+            box-shadow: 0 4px 12px rgba(255, 0, 85, 0.3);
+        }
+        .btn-blue {
             background: #0084ff;
-            color: #ffffff !important;
-            text-decoration: none !important;
-            font-size: 15px;
-            font-weight: 700;
-            padding: 14px 20px;
-            border-radius: 50px;
-            margin: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 132, 255, 0.2);
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(0, 132, 255, 0.3);
+            border-radius: 12px; /* Square type variant */
         }
-
-        /* Button 3: Bottom - Premium Dark Red Ultra-Glossy */
-        .btn-bottom {
-            display: block;
-            background: linear-gradient(135deg, #dc2626, #991b1b);
-            color: #ffffff !important;
-            text-decoration: none !important;
-            font-size: 16px;
-            font-weight: 700;
-            padding: 16px 20px;
-            border-radius: 50px;
-            margin-top: 15px;
-            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.35);
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 0.5px;
+        .btn-red {
+            background: #dc2626;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
         }
+    </style>
+</head>
 
-        /* Hover states for professional desktop look */
-        .btn-top:hover, .
+<body>
+
+    <div class="container">
+        <img src="https://github.com/mizan000321-ops/newv/blob/main/HGShZ2GWUAEMERX.jpg?raw=true" alt="Live Host" class="main-profile">
+        <div class="live-text">● LIVE NOW</div>
+
+        <h2>🔒 Connecting to Private Server...</h2>
+        
+        <p>Hey there! I'm currently hanging out in my big apartment, completely free and waiting for you. 😘</p>
+        
+        <a href="https://bedjfha.datesoffers.com/s/62b4abc4a39b9?preland=Adult&sub1=dksex" class="btn-link btn-pink">
+            🎥 START PRIVATE VIDEO CALL NOW
+        </a>
+        
+        <p>To ensure a completely private and secure face-to-face connection, our session will be established through an encrypted bypass network. Once you click below, the system will <strong>automatically redirect and instantly route your session</strong> straight to my private video room. 🤫🔒</p>
+        
+        <div class="card-alert">
+            <strong style="color: #b32d44; font-size: 13px;">📱 SPECIAL NOTICE FOR MOBILE USERS:</strong>
+            <p style="margin-top: 5px; margin-bottom: 0; color: #e63946; font-weight: bold; font-size: 13px; text-align: left;">If you are accessing this from a Smartphone (iOS/Android), the connection is fully optimized for cellular networks. Mobile users will experience an instant, high-speed 1-click connection directly to my room!</p>
+        </div>
+
+        <a href="https://bedjfha.datesoffers.com/s/62b4abc4a39b9?preland=Adult&sub1=dksex" class="btn-link btn-blue">
+            📱 INSTANT MOBILE CONNECT (FREE)
+        </a>
+
+        <div class="card-status">
+            <strong style="color: #0369a1; font-size: 13px;">⚠️ Connection Status:</strong>
+            <ul style="margin-top: 5px; text-align: left;">
+                <li>Status: Live & Available Online ✅</li>
+                <li>Access: <strong>100% FREE</strong> — No credit cards required.</li>
+                <li>Privacy: Fully Encrypted Peer-to-Peer Link.</li>
+            </ul>
+        </div>
+
+        <p style="font-size: 12px; font-weight: bold; color: #718096; text-align: left; text-transform: uppercase; margin-top: 20px;">📸 My Private Album Preview:</p>
+        
+        <div class="gallery-wrap">
+            <img src="
