@@ -21,9 +21,9 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #1c1e21;
             padding: 15px;
             display: flex;
             justify-content: center;
@@ -32,59 +32,131 @@
         }
         .container {
             background: #ffffff;
-            max-width: 450px;
+            max-width: 440px;
             width: 100%;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
             text-align: center;
             border-top: 6px solid #ff0055;
+            position: relative;
         }
-        h2 { color: #ff0055; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
-        p { font-size: 14px; line-height: 1.5; color: #444; text-align: left; margin-bottom: 15px; }
         
-        .notice-box {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 12px;
-            margin: 15px 0;
-            border-radius: 6px;
-            text-align: left;
-            font-size: 13px;
+        /* Pulse Animation for Live Badge */
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
-        .status-box {
-            background-color: #d1ecf1; 
-            border-left: 4px solid #17a2b8;
-            padding: 12px;
-            margin: 15px 0;
-            border-radius: 6px;
-            text-align: left;
-            font-size: 13px;
+        
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #f0fdf4;
+            color: #16a34a;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            border: 1px solid #bbf7d0;
         }
-        .status-box ul { padding-left: 15px; color: #0c5460; }
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse 2s infinite;
+        }
 
-        /* Gallery Container */
-        .gallery-container {
+        h2 { color: #222; font-size: 21px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 5px; }
+        
+        /* Modern Progress Bar */
+        .progress-bar {
+            width: 100%;
+            background: #f1f5f9;
+            height: 5px;
+            border-radius: 10px;
+            margin: 15px 0 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-fill {
+            width: 65%;
+            background: linear-gradient(90deg, #ff0055, #ff5500);
+            height: 100%;
+            border-radius: 10px;
+            position: absolute;
+            animation: loadingMove 2s infinite ease-in-out;
+        }
+        @keyframes loadingMove {
+            0% { left: -40%; width: 30%; }
+            50% { width: 40%; }
+            100% { left: 110%; width: 30%; }
+        }
+
+        p { font-size: 14.5px; line-height: 1.55; color: #4a5568; text-align: left; margin-bottom: 15px; }
+        
+        /* Sleek iOS Style Notification Boxes */
+        .card-alert {
+            background-color: #fff5f5;
+            border-left: 4px solid #ff4d6d;
+            padding: 14px;
+            margin: 16px 0;
+            border-radius: 12px;
+            text-align: left;
+        }
+        .card-status {
+            background-color: #f0f9ff; 
+            border-left: 4px solid #0284c7;
+            padding: 14px;
+            margin: 16px 0;
+            border-radius: 12px;
+            text-align: left;
+        }
+        .card-status ul { padding-left: 16px; color: #0369a1; font-size: 13.5px; }
+        .card-status li { margin-top: 4px; }
+
+        /* Elegant Flex Gallery with Aspect-Ratio Fix */
+        .gallery-wrap {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 6px;
-            margin: 20px 0;
+            gap: 8px;
+            margin: 22px 0;
             width: 100%;
         }
+        .gallery-img {
+            width: calc(33.33% - 6px);
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+        .gallery-img:hover { transform: scale(1.03); }
 
-        .cta-button {
+        /* Premium Pulsing CTA Button */
+        .cta-btn {
             display: block;
             background: linear-gradient(135deg, #ff0055, #e6004c);
             color: #fff;
             text-decoration: none;
             font-size: 16px;
-            font-weight: bold;
-            padding: 14px 15px;
+            font-weight: 700;
+            padding: 16px 20px;
             border-radius: 50px;
-            margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(255, 0, 85, 0.3);
+            margin-top: 22px;
+            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.3);
             text-align: center;
+            letter-spacing: 0.3px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255, 0, 85, 0.4);
         }
     </style>
 </head>
@@ -92,34 +164,4 @@
 <body>
 
     <div class="container">
-        <img src="https://github.com/mizan000321-ops/newv/blob/main/HGShZ2GWUAEMERX.jpg?raw=true" alt="Live Host" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid #ff0055; object-fit: cover; margin: 0 auto 15px auto; display: block;">
-
-        <h2>🔒 Connecting to Private Server...</h2>
-        
-        <p>Hey there! I'm currently hanging out in my big apartment, completely free and waiting for you. 😘</p>
-        
-        <p>To ensure a completely private and secure face-to-face connection, our session will be established through an encrypted bypass network. Once you click below, the system will <strong>automatically redirect and instantly route your session</strong> straight to my private video room. 🤫🔒</p>
-        
-        <div class="notice-box">
-            <strong style="color: #856404;">📱 SPECIAL NOTICE FOR MOBILE USERS:</strong>
-            <p style="margin-top: 5px; color: #dc3545; font-weight: bold;">If you are accessing this from a Smartphone (iOS/Android), the connection is fully optimized for cellular networks. Mobile users will experience an instant, high-speed 1-click connection directly to my room without any lag or waiting queue! ⚡📱</p>
-        </div>
-
-        <div class="status-box">
-            <strong style="color: #0c5460;">⚠️ Connection Status:</strong>
-            <ul style="margin-top: 5px;">
-                <li>Status: Live & Available Online ✅</li>
-                <li>Access: <strong>100% FREE</strong> — No credit cards or verification required.</li>
-                <li>Privacy: Fully Encrypted Peer-to-Peer Link.</li>
-            </ul>
-        </div>
-
-        <p style="font-size: 13px; font-weight: bold; color: #666; text-align: left; text-transform: uppercase; margin-top: 20px;">📸 My Private Album Preview:</p>
-        
-        <div class="gallery-container">
-            <img src="https://github.com/mizan000321-ops/newv/blob/main/G3UZgO_XMAAzE6N.jpg?raw=true" style="width: calc(33.33% - 4px); height: 95px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd;" alt="1">
-            <img src="https://github.com/mizan000321-ops/newv/blob/main/GoWoZl9X0AA1I6V.jpg?raw=true" style="width: calc(33.33% - 4px); height: 95px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd;" alt="2">
-            <img src="https://github.com/mizan000321-ops/newv/blob/main/Gv2LKn_XwAAsWou.jpg?raw=true" style="width: calc(33.33% - 4px); height: 95px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd;" alt="3">
-            <img src="https://github.com/mizan000321-ops/newv/blob/main/HAwdaxsW0AA1AU1.jpg?raw=true" style="width: calc(33.33% - 4px); height: 95px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd;" alt="4">
-            <img src="https://github.com/mizan000321-ops/newv/blob/main/HBuOij0WoAAfrI3.jpg?raw=true" style="width: calc(33.33% - 4px); height: 95px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd;" alt="5">
-            <img src="
+        <img src="https://github.com/mizan000321-ops/newv/blob/main/HGShZ2GWUAEMERX.jpg?raw=true" alt="Live Host" style="width: 105px; height: 105px; border-radius: 50%; border: 3px solid #ff0055; object-fit: cover; margin: 0 auto 8px auto; display: block; box-shadow:
